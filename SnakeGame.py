@@ -76,8 +76,6 @@ class Serpiente:
 
 
 
-
-
 # Se inicializan todas las funciones del modulo de pygame
 pygame.init()
 
@@ -159,6 +157,10 @@ while(True):
         mi_fuente = pygame.font.Font(r'C:\Users\Alejandro Montoya V\Desktop\EDD\Snake game\gnarly_skeleton\fuente.otf', 50)
         texto = mi_fuente.render("Game over", True, (0, 0, 0))
         ventana.blit(texto, (210, 300))
+        # Se actualiza la pantalla y se cierra
+        pygame.display.update()
+        pygame.time.delay(3000)
+        sys.exit()
         
 
     # Se actualiza la serpiente
@@ -167,7 +169,7 @@ while(True):
 
     # Se actualiza la ventana
     pygame.display.update()
-    reloj.tick(15)
+    reloj.tick(10)
 
 
 
