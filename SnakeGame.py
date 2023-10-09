@@ -1,7 +1,7 @@
 import pygame
 from pygame.locals import *
 import sys
-from random import choice
+from random import choice, randint
 from collections import deque
 
 # Clase fruta
@@ -75,7 +75,6 @@ class Serpiente:
 
 
 
-
 # Se inicializan todas las funciones del modulo de pygame
 pygame.init()
 
@@ -101,6 +100,9 @@ fruta = Fruta()
 
 # Creamos el objeto de serpiente
 serpiente = Serpiente()
+
+# Contador de movimientos
+movimientos = 0
 
 # Empezamos el bucle del juego:
 while(True):
@@ -154,12 +156,12 @@ while(True):
     # Con la serpiente y la pared
     if serpiente.colision_cuerpo() or serpiente.cuerpo_serpiente[-1][0] >= 650 or serpiente.cuerpo_serpiente[-1][1] >= 650 or serpiente.cuerpo_serpiente[-1][0] < 0 or serpiente.cuerpo_serpiente[-1][1] < 0:
         ventana.fill(color_fruta)
-        mi_fuente = pygame.font.Font(r'C:\Users\Alejandro Montoya V\Desktop\EDD\Snake game\gnarly_skeleton\fuente.otf', 50)
+        mi_fuente = pygame.font.Font("gnarly_skeleton/font.otf", 50)
         texto = mi_fuente.render("Game over", True, (0, 0, 0))
         ventana.blit(texto, (210, 300))
         # Se actualiza la pantalla y se cierra
         pygame.display.update()
-        pygame.time.delay(3000)
+        pygame.time.delay(2000)
         sys.exit()
         
 
